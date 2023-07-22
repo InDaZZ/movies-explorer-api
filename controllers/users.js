@@ -4,6 +4,7 @@ const User = require('../models/user');
 const NotFoundError = require('../error/not-found-err');
 const BadRequest = require('../error/bad-request-err');
 const Emailexists = require('../error/email-exists-err');
+
 const { NODE_ENV, JWT_SECRET } = process.env;
 
 const creatUser = (req, res, next) => {
@@ -42,7 +43,7 @@ const login = (req, res, next) => {
   return User.findUserByCredentials(email, password)
     .then((user) => {
       // создадим токен
-      const token = jwt.sign({ _id: user._id }, 'secret-key', { expiresIn: '7d' });
+      const token = jwt.sign({ _id: user._id }, NODE_ENV === 'production' ? JWT_SECRET : 'secret-key', { expiresIn: '7d' });
       // вернём токен
       res
         .cookie('jwt', token, {

@@ -16,7 +16,9 @@ const NotFoundError = require('../error/not-found-err');
 
 router.use('/', signinRouter);
 router.use('/', signupRouter);
+
 router.use(auth);
+
 router.use('/', userRouter);
 router.use('/', filmRoutet);
 router.use('/', signoutRouter);
