@@ -1,7 +1,7 @@
 const { Joi, celebrate } = require('celebrate');
 
 const getUserValidation = celebrate({
-  params: Joi.object().keys({ userId: Joi.string().required().hex() }),
+  params: Joi.object().keys({ userId: Joi.string().length(24).required().hex() }),
 });
 
 const updateUserValidation = celebrate({

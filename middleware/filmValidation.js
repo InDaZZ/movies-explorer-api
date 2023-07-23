@@ -9,19 +9,19 @@ const createFilmValidation = celebrate({
     year: Joi.string().required(),
     description: Joi.string().required(),
     image: Joi.string().required().custom((value, helpers) => {
-      if (validator.isEmail(value)) {
+      if (validator.isURL(value)) {
         return value;
       }
       return helpers.message('Некоректнная ссылка');
     }),
     trailerLink: Joi.string().required().custom((value, helpers) => {
-      if (validator.isEmail(value)) {
+      if (validator.isURL(value)) {
         return value;
       }
       return helpers.message('Некоректнная ссылка');
     }),
     thumbnail: Joi.string().required().custom((value, helpers) => {
-      if (validator.isEmail(value)) {
+      if (validator.isURL(value)) {
         return value;
       }
       return helpers.message('Некоректнная ссылка');
@@ -32,6 +32,11 @@ const createFilmValidation = celebrate({
   }),
 });
 
+const filmIDValidation = celebrate({
+  params: Joi.object().keys({ _id: Joi.string().length(24).required().hex() }),
+});
+
 module.exports = {
   createFilmValidation,
+  filmIDValidation,
 };

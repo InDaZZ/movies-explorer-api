@@ -32,7 +32,7 @@ const createFilm = (req, res, next) => {
     duration,
     owner,
   })
-    .then((card) => res.status(201).send(card))
+    .then((film) => res.status(201).send(film))
     .catch((err) => {
       if (err.name === 'ValidationError') {
         return next(new BadRequest('Некоректный запрос'));
@@ -55,17 +55,16 @@ const getFilms = async (req, res, next) => {
 };
 
 const deleteFilm = (req, res, next) => {
-  const userId = req.params;
-  Film.findById(userId)
+  const filmId = req.params;
+  Film.findById(filmId)
     .then((film) => {
       if (!film) {
         throw new NotFoundError('Фильма с таким id не существует');
       }
-      Film.deleteOne(film._id)
+      return Film.deleteOne(film._id)
         .then(() => res.send({ data: film }));
     })
     .catch((err) => {
-      console.log(err.name);
       if (err.name === 'ValidationError') {
         return next(new BadRequest('Некоректный запрос'));
       }
