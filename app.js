@@ -4,11 +4,11 @@ const mongoose = require('mongoose');
 
 require('dotenv').config();
 
-const { PORT = 3000 } = process.env;
-
 const cors = require('cors');
 
 const cookieParser = require('cookie-parser');
+
+const { PORT, MONGODB } = require('./config');
 
 const router = require('./routes/index');
 
@@ -43,7 +43,7 @@ app.use(errorLogger);
 
 app.use(errHandler);
 
-mongoose.connect('mongodb://0.0.0.0:27017/bitfilmsdb', {
+mongoose.connect(MONGODB, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
