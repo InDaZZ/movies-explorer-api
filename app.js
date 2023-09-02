@@ -26,10 +26,12 @@ app.use(requestLogger);
 
 app.use(cors({
   origin: [
-    'https://http://localhost:3000',
-    'http://http://localhost:3000',
-    'https://http://localhost:3001',
-    'http://http://localhost:3001',
+    'https://movies-frontend.nomoredomainsicu.ru',
+    'http://movies-frontend.nomoredomainsicu.ru',
+    'http://localhost:3001',
+    'https://localhost:3001',
+    'http://localhost:3000',
+    'https://localhost:3000',
     'https://http://localhost:5000',
     'http://http://localhost:5000',
     'https://api.movies-project.nomoredomains.xyz',

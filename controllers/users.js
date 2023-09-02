@@ -60,6 +60,7 @@ const login = (req, res, next) => {
 
 const getUserMe = (req, res, next) => {
   const userId = req.user._id;
+  console.log(req.cookies.jwt._id);
   User.findById(userId)
     .then((user) => {
       if (!user) {
