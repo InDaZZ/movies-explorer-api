@@ -26,6 +26,7 @@ app.use(requestLogger);
 
 app.use(cors({
   origin: [
+    'https://movies-fronten.nomoredomainsicu.ru',
     'https://movies-frontend.nomoredomainsicu.ru',
     'http://movies-frontend.nomoredomainsicu.ru',
     'http://localhost:3001',
