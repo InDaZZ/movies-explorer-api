@@ -50,7 +50,7 @@ const login = (req, res, next) => {
           // token - наш JWT токен, который мы отправляем
           maxAge: 31536000,
           SameSite: 'none',
-          domain: '.movies-frontend.nomoredomainsicu.ru',
+          domain: '.api.movies-project.nomoredomains.xyz',
           secure: true,
           httpOnly: true,
         })
