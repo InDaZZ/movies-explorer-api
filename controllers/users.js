@@ -49,7 +49,7 @@ const login = (req, res, next) => {
         .cookie('jwt', token, {
           // token - наш JWT токен, который мы отправляем
           maxAge: 31536000,
-          domain: '.api.movies-project.nomoredomains.xyz',
+
           sameSite: 'none',
           secure: true,
           httpOnly: true,
