@@ -7,5 +7,10 @@
 2. Express
 3. MongoDb
 4. json web token
+
+## Запуск проекта
+`npm run start` — запускает сервер   
+`npm run dev` — запускает сервер с hot-reload
+
 ## Ссылка
 https://api.movies-project.nomoredomains.xyz
